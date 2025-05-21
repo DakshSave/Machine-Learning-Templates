@@ -1,6 +1,7 @@
 #Import all the necessary libraries.
 import pandas as pd
 from sklearn.linear_model import LinearRegression
+import matplotlib.pyplot as plt
 
 #Prepare the data.
 data = "_" #Replace the underscore with the path to your desired file.
@@ -32,5 +33,15 @@ print("Intercept =", intercept)
 print("Predictions :")
 for prediction in Y_prediction:
     print(prediction)
+
+#Plot the variables and the prediction.
+plt.scatter(X, Y, color = "blue", label = "Actual Data")
+plt.plot(X, Y_prediction, color = "red", label = "Predicted Data")
+plt.xlabel("X")
+plt.ylabel("Y / Y_prediction")
+plt.title("Multiple Linear Regression Estimator")
+plt.legend()
+plt.grid(True)
+plt.show
 
 #IMPORTANT - This code will show error until the underscores are filled.
