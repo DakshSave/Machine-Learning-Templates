@@ -5,4 +5,4 @@ These are some Machine Learning templates that I have created as projects. Anyon
 https://github.com/DakshSave/Machine-Learning-Templates/blob/main/1.0%20-%20SLR_Estimator.py
 
 2) MLR Estimator:
-
+https://github.com/DakshSave/Machine-Learning-Templates/blob/main/2.0%20-%20MLR_Estimator.py
