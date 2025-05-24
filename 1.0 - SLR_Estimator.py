@@ -30,9 +30,7 @@ intercept = lr_model.intercept_
 #Print the slope, intercept and the prediction.
 print("Slope =", slope)
 print("Intercept =", intercept)
-print("Predictions :")
-for prediction in Y_prediction:
-    print(prediction)
+print("Predictions :\n", Y_prediction)
 
 #Plot the variables and the prediction.
 plt.scatter(X, Y, color = "blue", label = "Actual Data")
