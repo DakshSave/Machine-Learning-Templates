@@ -29,3 +29,11 @@ pr_model.fit(X_poly, Y)
 Y_prediction = pr_model.predict(X_poly)
 
 #Plot the actual and predicted data.
+plt.scatter(X, Y, color = "blue", label = "Actual Data")
+plt.plot(X, Y_prediction, color = "red", label = "Predicted Data")
+plt.xlabel("X")
+plt.ylabel("Y / Y_prediction")
+plt.title("Polynomial Regression")
+plt.legend()
+plt.grid(True)
+plt.show
