@@ -25,3 +25,13 @@ model.fit(X, Y)
 Y_prediction = model.predict(X)
 
 #Plot the data.
+plt.scatter(X, Y, color = "blue", label = "Actual Data")
+plt.plot(X, Y_prediction, color = "red", label = "Predicted Data")
+plt.xlabel("X")
+plt.ylabel("Y / Y_prediction")
+plt.title("Logarithmic Regression")
+plt.legend()
+plt.grid(True)
+plt.show
+
+#IMPORTANT - This code will show error until the underscores are filled.
