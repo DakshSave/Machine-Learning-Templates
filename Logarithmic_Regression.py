@@ -14,3 +14,14 @@ df.dropna()
 #Assign the variables.
 X = np.log(df[["_"]] #Replace the underscore with the header(s) of the independent variable(s).
 Y = df["_"] #Replace the underscore with the header of the dependent variable.
+
+#Create a linear regression model.
+model = LinearRegression()
+
+#Fit the model with the variables.
+model.fit(X, Y)
+
+#Obtain the predictions.
+Y_prediction = model.predict(X)
+
+#Plot the data.
