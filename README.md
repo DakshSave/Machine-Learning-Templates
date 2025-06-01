@@ -6,3 +6,6 @@ https://github.com/DakshSave/Machine-Learning-Templates/blob/main/1.0%20-%20SLR_
 
 2) MLR Estimator:
 https://github.com/DakshSave/Machine-Learning-Templates/blob/main/2.0%20-%20MLR_Estimator.py
+
+3) Polynomial Regression:
+https://github.com/DakshSave/Machine-Learning-Templates/blob/main/3.0%20-%20Polynomial_Regression.py
