@@ -6,7 +6,7 @@ from scipy.optimize import curve_fit
 
 #Prepare the data.
 data = "_" #Replace the underscore with the path to the file.
-df = pd.read_csv(data)
+df = pd.read_csv(data) #If the data is in another format replace the csv with your file format (csv, excel, hdf, json).
 
 #Clean the data.
 df.dropna()
@@ -26,7 +26,7 @@ a, b = params
 #Obtain the predictions.
 Y_prediction = exponential_func(X, a, b)
 
-#Plot the actual data and the prediction data.
+#Plot the actual data and the predicted data.
 plt.scatter(X, Y, color="blue", label="Actual Data")
 plt.plot(X, Y_prediction, color="red", label="Predicted Data")
 plt.xlabel("X")
