@@ -1,4 +1,4 @@
-#Import all necessary libraries.
+#Import the necessary libraries.
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
@@ -6,7 +6,7 @@ from sklearn.linear_model import LinearRegression
 
 #Prepare the data.
 data = "_" #Replace the underscore with the path to your file.
-df = pd.read_csv(data) #
+df = pd.read_csv(data) #If the data is in another format replace the csv with your file format (csv, excel, hdf, json).
 
 #Clean the data.
 df.dropna()
@@ -24,7 +24,7 @@ model.fit(X, Y)
 #Obtain the predictions.
 Y_prediction = model.predict(X)
 
-#Plot the data.
+#Plot the actual data and the predicted data.
 plt.scatter(X, Y, color = "blue", label = "Actual Data")
 plt.plot(X, Y_prediction, color = "red", label = "Predicted Data")
 plt.xlabel("X")
