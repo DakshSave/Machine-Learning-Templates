@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 from sklearn.linear_model import LinearRegression
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import PolynomialFeatures, StandardScaler
-from sklearn.metrics import accuracy_score
+from sklearn.metrics import mean_squared_error
 
 #Prepare the data.
 data = "_" #Replace the underscore with the file path.
@@ -40,10 +40,10 @@ model.fit(X_train, Y_train)
 Y_prediction = model.predict(X_test)
 
 #Get the accuracy score.
-accuracy = accuracy_score(Y_test, Y_prediction)
+mse = mean_squared_error(Y_test, Y_prediction)
 
 #Print the predictions and accuracy score.
 print("Predictions :\n", Y_prediction)
-print("Accuracy =", accuracy)
+print("Mean Squared Error =", mse)
 
 #IMPORTANT - This code will show error until the underscores are filled.
