@@ -10,7 +10,7 @@ data = "_" #Replace the underscore with the path to your desired file.
 df = pd.read_csv(data) #You can use excel, json or hdf also according to your data.
 
 #Clean the data.
-df = df.dropna(inplace = True)
+df.dropna(inplace = True)
 
 #Assign the variables.
 X = df[["_"]] #Replace the underscore with the header of the column of the independent variable.
