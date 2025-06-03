@@ -11,6 +11,9 @@ data = "_" #Replace the underscore with the path to your file.
 df = pd.read_csv(data) #If the data is in another format replace the csv with your file format (csv, excel, hdf, json).
 
 #Clean the data.
+df.dropna(inplace = True)
+
+#Assign the variables.
 X = df[["_"]].values #Replace the underscore with the header of the independent variable.
 Y = df["_"] #Replace the underscore with the header of the dependent variable.
 
@@ -46,3 +49,5 @@ accuracy = accuracy_score(Y_test, Y_prediction)
 #Print the probability and accuracy score.
 print("Probability =", Y_probability)
 print("Accuracy =", accuracy)
+
+#IMPORTANT - This code will show error until the underscores are filled.
