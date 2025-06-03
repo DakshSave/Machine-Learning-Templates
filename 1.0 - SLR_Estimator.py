@@ -3,7 +3,7 @@ import pandas as pd
 from sklearn.linear_model import LinearRegression
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
-from sklearn.metrics import accuracy_score
+from sklearn.metrics import mean_squared_error
 
 #Prepare the data.
 data = "_" #Replace the underscore with the path to your desired file.
@@ -38,13 +38,12 @@ slope = model.coef_
 intercept = model.intercept_
 
 #Get the accuracy score.
-accuracy = accuracy_score(Y_test, Y_prediction)
+mse = mean_squared_error(Y_test, Y_prediction)
 
 #Print the slope, intercept, prediction and the accuracy score.
 print("Slope =", slope)
 print("Intercept =", intercept)
 print("Predictions :\n", Y_prediction)
-print("Accuracy Score =", accuracy)
-
+print("Mean Squared Error =", mse)
 
 #IMPORTANT - This code will show error until the underscores are filled.
