@@ -34,4 +34,11 @@ model.fit(X_train, Y_train)
 #Obtain the predictions.
 Y_prediction = model.predict(X_test)
 
+#Get the MSE.
+mse = mean_squared_error(Y_test, Y_prediction)
+
+#Print the predictions and the MSE.
+print("Predictions :\n", Y_prediction)
+print("Mean Squared Error =", mse)
+
 #IMPORTANT - This code will show error until the underscores are filled.
