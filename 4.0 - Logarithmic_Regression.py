@@ -11,7 +11,7 @@ data = "_" #Replace the underscore with the path to your file.
 df = pd.read_csv(data) #If the data is in another format replace the csv with your file format (csv, excel, hdf, json).
 
 #Clean the data.
-df = df.dropna(inplace = True)
+df.dropna(inplace = True)
 
 #Assign the variables.
 X = np.log(df[["_"]]) #Replace the underscore with the header(s) of the independent variable(s).
