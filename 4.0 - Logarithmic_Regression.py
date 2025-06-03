@@ -34,6 +34,4 @@ model.fit(X_train, Y_train)
 #Obtain the predictions.
 Y_prediction = model.predict(X_test)
 
-
-
 #IMPORTANT - This code will show error until the underscores are filled.
