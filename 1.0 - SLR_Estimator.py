@@ -1,7 +1,9 @@
 #Import all the necessary libraries.
 import pandas as pd
 from sklearn.linear_model import LinearRegression
-import matplotlib.pyplot as plt
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler
+from sklearn.metrics import accuracy_score
 
 #Prepare the data.
 data = "_" #Replace the underscore with the path to your desired file.
@@ -14,32 +16,35 @@ df = df.dropna()
 X = df[["_"]] #Replace the underscore with the header of the column of the independent variable.
 Y = df["_"] #Replace the underscore with the header of the column of the dependent/target variable.
 
+#Split the data into training and testing sets.
+X_train, X_test, Y_train, Y_test = (X, Y, test_size = _, random_state = 42) #The value of test_size (where the underscore is) must be between 1 and 0 (representing percentages). 
+
+#Scale the data.
+scaler = StandardScaler()
+X_train = scaler.fit_transform(X_train)
+X_test = scaler.transform(X_test)
+
 #Create the linear regression model.
-lr_model = LinearRegression()
+model = LinearRegression()
 
 #Fit the model with the data.
-lr_model.fit(X, Y)
+model.fit(X_train, Y_train)
 
 #Get the prediction.
-Y_prediction = lr_model.predict(X)
+Y_prediction = model.predict(X_test)
 
 #Get the slope and the intercept.
-slope = lr_model.coef_
-intercept = lr_model.intercept_
+slope = model.coef_
+intercept = model.intercept_
 
-#Print the slope, intercept and the prediction.
+#Get the accuracy score.
+accuracy = accuracy_score(Y_test, Y_prediction)
+
+#Print the slope, intercept, prediction and the accuracy score.
 print("Slope =", slope)
 print("Intercept =", intercept)
 print("Predictions :\n", Y_prediction)
+print("Accuracy Score =", accuracy)
 
-#Plot the variables and the prediction.
-plt.scatter(X, Y, color = "blue", label = "Actual Data")
-plt.plot(X, Y_prediction, color = "red", label = "Predicted Data")
-plt.xlabel("X")
-plt.ylabel("Y / Y_prediction")
-plt.title("Simple Linear Regression Estimator")
-plt.legend()
-plt.grid(True)
-plt.show
 
 #IMPORTANT - This code will show error until the underscores are filled.
