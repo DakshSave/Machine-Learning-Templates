@@ -31,5 +31,15 @@ X_range = np.linspace(X.min(), X.max(), 300).reshape(-1, 1)
 #Scale the range
 X_range = scaler.transform(X_range)
 
+#Obtain the predictions.
+Y_prediction = model.predict(X_test)
+
 #Obtain predicted probabilities.
 Y_probability = model.predict_proba(X_range)[:, 1]
+
+#Get the accuracy score.
+accuracy = accuracy_score(Y_test, Y_prediction)
+
+#Print the probability and accuracy score.
+print("Probability =", Y_probability)
+print("Accuracy =", accuracy)
