@@ -39,6 +39,11 @@ model.fit(X_train, Y_train)
 #Obtain the prediction.
 Y_prediction = model.predict(X_test)
 
+#Get the accuracy score.
+accuracy = accuracy_score(Y_test, Y_prediction)
 
+#Print the predictions and accuracy score.
+print("Predictions :\n", Y_prediction)
+print("Accuracy =", accuracy)
 
 #IMPORTANT - This code will show error until the underscores are filled.
