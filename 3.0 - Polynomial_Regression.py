@@ -3,7 +3,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from sklearn.linear_model import LinearRegression
 from sklearn.model_selection import train_test_split
-from sklearn.preprocessing import PolynomialFeatures, StandardScaler
+from sklearn.preprocessing import PolynomialFeatures, StandardScaler, Pipeline
 from sklearn.metrics import mean_squared_error
 
 #Prepare the data.
@@ -18,26 +18,21 @@ X = df[["_"]] #Replace the underscore with the header(s) of what would be the in
 Y = df["_"] # Replace the underscore with the header of what would be the dependent variable.
 
 #Split the data into training and testing sets.
-X_train, X_test, Y_train, Y_test = (X, Y, test_size = _, random_state = 42)
+X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size = _, random_state = 42)
 
-#Scale the data.
-scaler = StandardScaler()
-X_train = scaler.fit_transform(X_train)
-X_test = scaler.transform(X_test)
+#Create a pipeline
+pipeline = Pipeline([("scaler", StandardScaler()), ("poly", PolynomialFeatures(degree = _)), ("model", LinearRegression())]) #Replace the underscore with what you want to be the degree of the polynomial.
 
-#Transform the data into a polynomial.
-poly = PolynomialFeatures(degree = _) #Replace the underscore with what you want to be the degree of the polynomial.
-X_train = poly.fit_transform(X_train)
-X_test = poly.transform(X_test)
+#Fit the pipeline with the data.
+pipeline.fit(X_train, Y_train)
 
-#Create a linear regression model.
-model = LinearRegression()
-
-#Fit the model with the data.
-model.fit(X_train, Y_train)
+#Create separate variables of each step for better readability (optional).
+scaler = pipeline.named_steps["scaler"]
+poly = pipeline.named_steps["poly"]
+model = pipeline.named_steps["model"]
 
 #Obtain the prediction.
-Y_prediction = model.predict(X_test)
+Y_prediction = pipeline.predict(X_test)
 
 #Get the accuracy score.
 mse = mean_squared_error(Y_test, Y_prediction)
