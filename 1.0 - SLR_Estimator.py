@@ -22,12 +22,12 @@ X_train, X_test, Y_train, Y_test = (X, Y, test_size = _, random_state = 42) #The
 #Create a pipeline.
 pipeline = Pipeline([("scaler", StandardScaler()), ("model", LinearRegression())])
 
+#Fit the pipeline with the data.
+pipeline.fit(X_train, Y_train)
+
 #Make separate variables of each step for better readability (optional)
 model = pipeline.named_steps["model"]
 scaler = pipeline.named_steps["scaler"]
-
-#Fit the pipeline with the data.
-pipeline.fit(X_train, Y_train)
 
 #Get the prediction.
 Y_prediction = pipeline.predict(X_test)
