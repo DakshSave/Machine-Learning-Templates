@@ -2,7 +2,7 @@
 import pandas as pd
 from sklearn.linear_model import LinearRegression
 from sklearn.model_selection import train_test_split
-from sklearn.preprocessing import StandardScaler
+from sklearn.preprocessing import StandardScaler, Pipeline
 from sklearn.metrics import mean_squared_error
 
 #Prepare the data.
@@ -17,21 +17,20 @@ X = df[["_"]] #Replace the underscore with the header of the column of the indep
 Y = df["_"] #Replace the underscore with the header of the column of the dependent/target variable.
 
 #Split the data into training and testing sets.
-X_train, X_test, Y_train, Y_test = (X, Y, test_size = _, random_state = 42) #The value of test_size (where the underscore is) must be between 1 and 0 (representing percentages). 
+X_train, X_test, Y_train, Y_test = (X, Y, test_size = _, random_state = 42) #The value of test_size (where the underscore is) must be between 0 and 1 (representing percentages). 
 
-#Scale the data.
-scaler = StandardScaler()
-X_train = scaler.fit_transform(X_train)
-X_test = scaler.transform(X_test)
+#Create a pipeline.
+pipeline = Pipeline([("scaler", StandardScaler()), ("model", LinearRegression())])
 
-#Create the linear regression model.
-model = LinearRegression()
+#Make separate variables of each step for better readability (optional)
+model = pipeline.named_steps["model"]
+scaler = pipeline.named_steps["scaler"]
 
-#Fit the model with the data.
-model.fit(X_train, Y_train)
+#Fit the pipeline with the data.
+pipeline.fit(X_train, Y_train)
 
 #Get the prediction.
-Y_prediction = model.predict(X_test)
+Y_prediction = pipeline.predict(X_test)
 
 #Get the slope and the intercept.
 slope = model.coef_
