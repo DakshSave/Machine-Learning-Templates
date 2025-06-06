@@ -23,7 +23,9 @@ X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size = _, random_
 #Create a pipeline.
 pipeline = Pipeline([("scaler", StandardScaler()), ("model", LogisticRegression())])
 
-
+#Create separate variables of each step in the pipeline for better readability.
+scaler = pipeline.named_steps["scaler"]
+model = pipeline.named_steps["model"]
 
 #Fit the model
 pipeline.fit(X_train, Y_train)
