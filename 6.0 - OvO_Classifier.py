@@ -4,7 +4,7 @@ import numpy as np
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression
 from sklearn.multiclass import OneVsOneClassifier
-from sklearn.preprocessing import StandardScaler
+from sklearn.preprocessing import StandardScalerp, Pipeline
 from sklearn.metrics import accuracy_score
 
 #Prepare the data.
@@ -21,6 +21,9 @@ Y = df["_"] #Replace the underscore with the header of your dependent variable.
 #Split the data into training and testing sets.
 X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size = _, random_state = 42) #The value of test size must be between 0 and 1 (represents percentages).
 
+#Create a pipeline.
+pipeline = Pipeline([("scaler", StandardScaler()), ("model", OneVsOneClassifier(LogisticRegression()))])
+
 #Scale the data.
 scaler = StandardScaler()
 X_train = scaler.fit_transform(X_train)
@@ -30,10 +33,12 @@ X_test = scaler.transform(X_test)
 model = OneVsOneClassifier(LogisticRegression())
 
 #Fit the model with training data.
-model.fit(X_train, Y_train)
+pipeline.fit(X_train, Y_train)
+
+#Create separate variables of each step in the pipeline for better readability (optional).
 
 #Obtain the predictions.
-Y_prediction = model.predict(X_test)
+Y_prediction = pipeline.predict(X_test)
 
 #Get the accuracy score.
 accuracy = accuracy_score(Y_test, Y_prediction)
