@@ -9,3 +9,6 @@ https://github.com/DakshSave/Machine-Learning-Templates/blob/main/2.0%20-%20MLR_
 
 3) Polynomial Regression:
 https://github.com/DakshSave/Machine-Learning-Templates/blob/main/3.0%20-%20Polynomial_Regression.py
+
+4) Logistic Regression:
+https://github.com/DakshSave/Machine-Learning-Templates/blob/main/4.0%20-%20Logistic_Regression.py
