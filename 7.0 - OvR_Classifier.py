@@ -3,8 +3,9 @@ import pandas as pd
 import numpy as np
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression
-from sklearn.multiclass import OneVsOneClassifier
+from sklearn.multiclass import OneVsRestClassifier
 from sklearn.preprocessing import StandardScaler
+from sklearn.pipeline import Pipeline
 from sklearn.metrics import accuracy_score
 
 #Prepare the data.
@@ -21,19 +22,18 @@ Y = df["_"] #Replace the underscore with the header of your dependent variable.
 #Split the data into training and testing sets.
 X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size = _, random_state = 42) #The value of test size must be between 0 and 1 (represents percentages).
 
-#Scale the data.
-scaler = StandardScaler()
-X_train = scaler.fit_transform(X_train)
-X_test = scaler.transform(X_test)
+#Create the pipeline.
+pipeline = Pipeline([("scaler", StandardScaler()), ("model", OneVsRestClassifier(LogisticRegression()))])
 
-#Create the ovo classifier model.
-model = OneVsRestClassifier(LogisticRegression())
+#Make separate variables of each step for better readability (optional).
+scaler = pipeline.named_steps["scaler"]
+model = pipeline.named_steps["model"]
 
-#Fit the model with training data.
-model.fit(X_train, Y_train)
+#Fit the pipeline with training data.
+pipeline.fit(X_train, Y_train)
 
 #Obtain the predictions.
-Y_prediction = model.predict(X_test)
+Y_prediction = pipeline.predict(X_test)
 
 #Get the accuracy score.
 accuracy = accuracy_score(Y_test, Y_prediction)
