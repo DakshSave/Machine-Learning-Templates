@@ -27,7 +27,7 @@ pipeline = Pipeline([("scaler", StandardScaler()), ("model", LogisticRegression(
 scaler = pipeline.named_steps["scaler"]
 model = pipeline.named_steps["model"]
 
-#Fit the model
+#Fit the model.
 pipeline.fit(X_train, Y_train)
 
 #Create a range of values for prediction.
