@@ -1,6 +1,6 @@
 #Import all the necessary libraries.
 import pandas as pd
-from sklearn.linear_model import LinearRegression
+from sklearn.linear_model import Ridge
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler, Pipeline
 from sklearn.metrics import mean_squared_error
