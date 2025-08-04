@@ -7,8 +7,14 @@ https://github.com/DakshSave/Machine-Learning-Templates/blob/main/1.0%20-%20SLR_
 2) MLR Estimator:
 https://github.com/DakshSave/Machine-Learning-Templates/blob/main/2.0%20-%20MLR_Estimator.py
 
-3) Polynomial Regression:
+3) Ridge Regression:
+https://github.com/DakshSave/Machine-Learning-Templates/blob/main/3.0%20-%20Ridge_Regression.py
+
+4) Lasso Regression:
+https://github.com/DakshSave/Machine-Learning-Templates/blob/main/4.0%20-%20Lasso_Regression.py
+
+5) Polynomial Regression:
 https://github.com/DakshSave/Machine-Learning-Templates/blob/main/3.0%20-%20Polynomial_Regression.py
 
-4) Logistic Regression:
+6) Logistic Regression:
 https://github.com/DakshSave/Machine-Learning-Templates/blob/main/4.0%20-%20Logistic_Regression.py
