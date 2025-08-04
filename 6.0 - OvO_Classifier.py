@@ -24,13 +24,9 @@ X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size = _, random_
 #Create a pipeline.
 pipeline = Pipeline([("scaler", StandardScaler()), ("model", OneVsOneClassifier(LogisticRegression()))])
 
-#Scale the data.
-scaler = StandardScaler()
-X_train = scaler.fit_transform(X_train)
-X_test = scaler.transform(X_test)
-
-#Create the ovo classifier model.
-model = OneVsOneClassifier(LogisticRegression())
+#Create separate variables of each step in the pipeline for better readability.
+scaler = pipeline.named_steps["scaler"]
+model = pipeline.named_steps["model"]
 
 #Fit the model with training data.
 pipeline.fit(X_train, Y_train)
