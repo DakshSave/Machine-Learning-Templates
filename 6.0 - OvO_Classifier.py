@@ -4,7 +4,8 @@ import numpy as np
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression
 from sklearn.multiclass import OneVsOneClassifier
-from sklearn.preprocessing import StandardScalerp, Pipeline
+from sklearn.preprocessing import StandardScalerp
+from sklearn.pipeline import Pipeline
 from sklearn.metrics import accuracy_score
 
 #Prepare the data.
