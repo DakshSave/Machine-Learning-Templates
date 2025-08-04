@@ -32,8 +32,6 @@ model = pipeline.named_steps["model"]
 #Fit the model with training data.
 pipeline.fit(X_train, Y_train)
 
-#Create separate variables of each step in the pipeline for better readability (optional).
-
 #Obtain the predictions.
 Y_prediction = pipeline.predict(X_test)
 
