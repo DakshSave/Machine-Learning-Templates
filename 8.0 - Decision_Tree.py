@@ -20,13 +20,7 @@ Y = ["_"] #Replace the underscore with the header of the independent variable.
 #Split the data into training and testing sets.
 X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size = _, random_state = 42) #The value of test size must be between 0 and 1 (representating percentages).
 
-#Scale the data.
-scaler = StandardScaler()
-X_train = scaler.fit_transform(X_train)
-X_test = scaler.transform(X_test)
-
-#Create the decision tree classifier model.
-model = DecisionTreeClassifier(max_depth = _, min_samples_split = _, min_samples_split = _, min_samples_leaf = _, max_leaf_nodes = _, random_state = 42)
+pipeline = Pipeline([("scaler", StandardScaler()), ("model", DecisionTreeClassifier(max_depth = _, min_samples_split = _, min_samples_split = _, min_samples_leaf = _, max_leaf_nodes = _, random_state = 42))])
 '''
 IMPORTANT
 Hyperparameters:
@@ -36,6 +30,9 @@ min_samples_leaf = Minimum number of samples required to be at a leaf node.
 max_leaf_nodes = Maximum number of leaf nodes.
 max_features = Maximum number of features considered for a split.
 '''
+
+scaler = pipeline.named_steps["scaler"]
+model = pipeline.named_steps["model"]
 
 #Fit the model with the training data.
 model.fit(X_train, Y_train)
