@@ -14,7 +14,7 @@ df = pd.read_csv(data) #If the data is in another format replace the csv with yo
 df.dropna(inplace = True)
 
 #Assign the variables.
-X = df[["_"]].values #Replace the underscore with the header of the independent variable.
+X = df[["_"]] #Replace the underscore with the header of the independent variable.
 Y = df["_"] #Replace the underscore with the header of the dependent variable.
 
 #Split the data into training and testing sets.
