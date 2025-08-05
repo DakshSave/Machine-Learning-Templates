@@ -39,6 +39,6 @@ mse = mean_squared_error(Y_test, Y_prediction)
 
 #Print the predictions and accuracy score.
 print("Predictions :\n", Y_prediction)
-print("MSE", mse)
+print("MSE =", mse)
 
 #IMPORTANT - This code will show error until the underscores are filled.
