@@ -34,10 +34,10 @@ pipeline.fit(X_train, Y_train)
 #Obtain the predictions.
 Y_prediction = pipeline.predict(X_test)
 
-#Get the accuracy score.
+#Get the mean squared error.
 mse = mean_squared_error(Y_test, Y_prediction)
 
-#Print the predictions and accuracy score.
+#Print the predictions and mean squared error.
 print("Predictions :\n", Y_prediction)
 print("MSE =", mse)
 
