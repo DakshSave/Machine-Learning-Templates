@@ -5,7 +5,7 @@ from sklearn.preprocessing import StandardScaler
 import umap
 
 #Prepare the data.
-data = "PathToFile" #Replace with the path to your file.
+data = "_" #Replace with the path to your file.
 df = pd.read_csv(data) #You can replace the csv with excel, json or hdf respective to your file format.
 
 #Scale the data.
