@@ -19,8 +19,7 @@ scaler = StandardScaler()
 X_scaled = scaler.fit_transform(X)
 
 #Create the model.
-model = hdbscan.HDBSCAN(min_cluster_size = _, min_samples = _) 
-#Replace the underscores with desired values.
+model = hdbscan.HDBSCAN(min_cluster_size = _, min_samples = _) #Replace the underscores with desired values.
 
 #Fit the model with data and obtain clusters.
 clusters = model.fit_predict(X_scaled)
