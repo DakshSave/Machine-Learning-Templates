@@ -2,7 +2,7 @@
 import pandas as pd
 import numpy as np
 from sklearn.model_selection import train_test_split
-from sklearn.ensemble import RandomForestClassifier
+from sklearn.ensemble import RandomForestRegressor
 from sklearn.preprocessing import StandardScaler
 from sklearn.pipeline import Pipeline
 from sklearn.metrics import mean_squared_error
@@ -22,7 +22,7 @@ Y = df["_"] #Replace the underscore with the header of your dependent variable.
 X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size = _, random_state = 42) #The value of test size must be between 0 and 1 (represents percentages).
 
 #Create a pipeline.
-pipeline = Pipeline([("scaler", StandardScaler()), ("model", RandomForestClassifier(n_estimators = _, max_depth = _, random_state = 42))]) 
+pipeline = Pipeline([("scaler", StandardScaler()), ("model", RandomForestRegressor(n_estimators = _, max_depth = _, random_state = 42))]) 
 #Replace the underscores with the number of trees (n_estimators) and maximum depth (max_depth).
 
 #Create separate variables of each step in the pipeline for better readability.
